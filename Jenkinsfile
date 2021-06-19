@@ -39,6 +39,7 @@ pipeline {
                 echo '                SCA OWAS - Dependecy Check '
                 echo '========================================='
                  sh 'mvn dependency-check:check'  
+                 dependencyCheckPublisher pattern: 'target/dependency-check-report.xml'  
             }
         }
         stage('SAST') {
