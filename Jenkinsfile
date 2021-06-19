@@ -39,12 +39,11 @@ pipeline {
                echo '========================================='
               echo '                SAST - SONARQUBE '
               echo '========================================='
-                script {
-                      def scannerHome = tool 'Sonar Server';
-                      sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=USACH_DEVSECOPS_PROJECT -Dsonar.host.url=http://localhost:9000 -Dsonar.login=60b6e5a53c50e2b48ee19e0f3c7643fc86ef3a2b"
-                    }
-                }
-           }
+                                
+                      sh "mvn sonar:sonar -Dsonar.projectKey=USACH_DEVSECOPS_PROJECT -Dsonar.host.url=http://localhost:9000 -Dsonar.login=60b6e5a53c50e2b48ee19e0f3c7643fc86ef3a2b"
+            
+            }
         }
+        
 }
 
