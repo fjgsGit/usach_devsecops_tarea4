@@ -33,7 +33,14 @@ pipeline {
                  sh 'mvn clean test -e'
             }
         }
-
+        stage ('SCA') {
+            steps {
+                echo '========================================='
+                echo '                SCA OWAS - Dependecy Check '
+                echo '========================================='
+                 sh 'mvn dependency-check:check'  
+            }
+        }
         stage('SAST') {
            steps{
                echo '========================================='
