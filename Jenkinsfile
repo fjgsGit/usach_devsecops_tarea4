@@ -52,7 +52,7 @@ pipeline {
             
             }
         }
-        stage('ZAP'){
+        stage('DAST'){
             steps{
                 script{
                     env.DOCKER_EXEC = "docker"
@@ -64,7 +64,7 @@ pipeline {
                 }
             }
         }
-        stage('Publish'){
+        stage('Publish DAST'){
 			steps{
 				publishHTML([
 				    allowMissing: false,
