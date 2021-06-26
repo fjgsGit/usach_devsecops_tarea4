@@ -83,13 +83,10 @@ pipeline {
                     env.DOCKER_EXEC = "docker"
                     env.TARGET_IMG = "usach/pheasoy:1.0"
                     sh '${DOCKER_EXEC} run --rm -v /var/run/docker.sock:/var/run/docker.sock -v $HOME/Library/Caches:/root/.cache/ aquasec/trivy:0.18.3 ${TARGET_IMG}'
-                    sh '${DOCKER_EXEC} rmi aquasec/trivy'
+                    sh '${DOCKER_EXEC} rmi aquasec/trivy:0.18.3'
                 }
             }
         }
-
-
-
     } 
 }
 
